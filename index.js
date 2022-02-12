@@ -54,15 +54,15 @@ io.on("connection", async socket => {
     })
 });
 
-routerProductos.get('/:id', (req, res) => {
-    let { id } = req.params;
-    let producto = productos.find(producto => producto.id === Number(id));
-    if (producto) {
-        res.json(producto);
-    } else {
-        res.status(404).json({ error: 'Producto no encontrado' });
-    }
-});
+// routerProductos.get('/:id', (req, res) => {
+//     let { id } = req.params;
+//     let producto = productos.find(producto => producto.id === Number(id));
+//     if (producto) {
+//         res.json(producto);
+//     } else {
+//         res.status(404).json({ error: 'Producto no encontrado' });
+//     }
+// });
 
 // routerProductos.post('/', (req, res) => {
 //     const {title, price, thumbnail} = req.body;
@@ -76,36 +76,36 @@ routerProductos.get('/:id', (req, res) => {
 //     res.render("index", {productos});
 // });
 
-routerProductos.put('/:id', (req, res) => {
-    const { id } = req.params;
-    const { title, price, thumbnail } = req.body;
-    const producto = productos.find(producto => producto.id === Number(id));
-    if (producto) {
-        if (title) {
-            producto.title = title;
-        }
-        if (price) {
-            producto.price = price;
-        }
-        if (thumbnail) {
-            producto.thumbnail = thumbnail;
-        }
-        res.json(producto);
-    } else {
-        res.status(404).json({ error: 'Producto no encontrado' });
-    }
-});
+// routerProductos.put('/:id', (req, res) => {
+//     const { id } = req.params;
+//     const { title, price, thumbnail } = req.body;
+//     const producto = productos.find(producto => producto.id === Number(id));
+//     if (producto) {
+//         if (title) {
+//             producto.title = title;
+//         }
+//         if (price) {
+//             producto.price = price;
+//         }
+//         if (thumbnail) {
+//             producto.thumbnail = thumbnail;
+//         }
+//         res.json(producto);
+//     } else {
+//         res.status(404).json({ error: 'Producto no encontrado' });
+//     }
+// });
 
-routerProductos.delete('/:id', (req, res) => {
-    const { id } = req.params;
-    const producto = productos.findIndex(producto => producto.id === Number(id));
-    if (producto) {
-        productos.splice(producto, 1);
-        res.json(productos);
-    } else {
-        res.status(404).json({ error: 'Producto no encontrado' });
-    }
-});
+// routerProductos.delete('/:id', (req, res) => {
+//     const { id } = req.params;
+//     const producto = productos.findIndex(producto => producto.id === Number(id));
+//     if (producto) {
+//         productos.splice(producto, 1);
+//         res.json(productos);
+//     } else {
+//         res.status(404).json({ error: 'Producto no encontrado' });
+//     }
+// });
 
 app.use("/api/productos", routerProductos);
 
